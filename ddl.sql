@@ -118,7 +118,6 @@ CREATE TABLE IF NOT EXISTS inventario (
     CONSTRAINT fk_id_pelicula_inventario FOREIGN KEY (id_almacen) REFERENCES almacen(id_almacen)
 ) ENGINE=INNODB;
 
--- aca tambien
 CREATE TABLE IF NOT EXISTS cliente (
     id_cliente SMALLINT PRIMARY KEY,
     id_almacen TINYINT,
@@ -133,7 +132,6 @@ CREATE TABLE IF NOT EXISTS cliente (
     CONSTRAINT fk_id_direccion_cliente FOREIGN KEY (id_direccion) REFERENCES direccion(id_direccion)
 ) ENGINE=INNODB;
 
--- aca tambien
 CREATE TABLE IF NOT EXISTS alquiler (
     id_alquiler INT PRIMARY KEY,
     fecha_alquiler DATETIME,
@@ -147,7 +145,6 @@ CREATE TABLE IF NOT EXISTS alquiler (
     CONSTRAINT fk_id_empleado_alquiler FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado)
 ) ENGINE=INNODB;
 
--- aca tambien tengo error
 CREATE TABLE IF NOT EXISTS pago (
     id_pago SMALLINT,
     id_cliente SMALLINT,

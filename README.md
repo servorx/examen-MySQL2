@@ -2,6 +2,8 @@
 
 El excamen consta de sus respectivos archivos y la sustentacion de cada ejercicio con sus indice se encuentra a lo largo de este README. Las tablas y las inserciones se encuentran en los archivos de este repositorio
 
+ACLARACION: tuve que reducir la cantidad de inserts ya que se registran hasta 42 id's de direccions y eso afectaba la insercion en otras tablas con la foreign key de id_direccion con mas de 43 ids.
+
 ## Consultas SQL
 
 1. Encuentra el cliente que ha realizado la mayor cantidad de alquileres en los últimos 6 meses.
