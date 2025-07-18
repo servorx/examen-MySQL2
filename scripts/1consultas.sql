@@ -13,4 +13,22 @@ ORDER BY COUNT(a.id_alquiler) DESC
 -- 2 
 SELECT 
 FROM 
+WHERE
+ORDER BY  
+LIMIT 5;
+
+-- 3 
+SELECT  
+FROM 
 WHERE 
+GROUP BY  
+;
+
+-- 4
+SELECT
+FROM 
+WHERE  
+
+-- 5
+
+-- 6
