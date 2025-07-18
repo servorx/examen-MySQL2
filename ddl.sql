@@ -28,6 +28,14 @@ CREATE TABLE IF NOT EXISTS direccion (
     CONSTRAINT fk_id_ciudad_direccion FOREIGN KEY (id_ciudad) REFERENCES ciudad(id_ciudad)
 ) ENGINE=INNODB;
 
+CREATE TABLE IF NOT EXISTS almacen (
+    id_almacen TINYINT PRIMARY KEY,
+    id_empleado_jefe TINYINT,
+    id_direccion SMALLINT,
+    ultima_actualizacion TIMESTAMP,
+    CONSTRAINT fk_id_direccion_almacen FOREIGN KEY (id_direccion) REFERENCES direccion(id_direccion)
+) ENGINE=INNODB;
+
 CREATE TABLE IF NOT EXISTS empleado (
     id_empleado TINYINT PRIMARY KEY,
     nombre VARCHAR(45),
@@ -41,16 +49,8 @@ CREATE TABLE IF NOT EXISTS empleado (
     username VARCHAR(16),
     password VARCHAR(40),
     ultima_actualizacion TIMESTAMP,
-    CONSTRAINT fk_id_direccion_empleado FOREIGN KEY (id_direccion) REFERENCES direccion(id_direccion)
-) ENGINE=INNODB;
-
-CREATE TABLE IF NOT EXISTS almacen (
-    id_almacen TINYINT PRIMARY KEY,
-    id_empleado_jefe TINYINT,
-    id_direccion SMALLINT,
-    ultima_actualizacion TIMESTAMP,
-    CONSTRAINT fk_id_almacen_almacen FOREIGN KEY (id_almacen) REFERENCES empleado(id_almacen),
-    CONSTRAINT fk_id_direccion_almacen FOREIGN KEY (id_direccion) REFERENCES direccion(id_direccion)
+    CONSTRAINT fk_id_direccion_empleado FOREIGN KEY (id_direccion) REFERENCES direccion(id_direccion),
+    CONSTRAINT fk_id_almacen_empleado FOREIGN KEY (id_almacen) REFERENCES almacen(id_almacen)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS idioma (
@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS idioma (
     nombre CHAR(20),
     ultima_actualizacion TIMESTAMP
 ) ENGINE=INNODB;
+
 
 CREATE TABLE IF NOT EXISTS pelicula (
     id_pelicula SMALLINT PRIMARY KEY,
@@ -70,8 +71,8 @@ CREATE TABLE IF NOT EXISTS pelicula (
     rental_rate DECIMAL(4,2),
     duracion SMALLINT,
     replacement_cost DECIMAL(5,2),
-    clasificacion ENUM("G","PG","PG-13","R","NC-17"),
-    caracteristicas_especiales SET("Trailers","Commentaries","Delete Scenes","Behind the Scenes"),
+    clasificacion ENUM('G','PG','PG-13','R','NC-17'),
+    caracteristicas_especiales SET('Trailers','Commentaries','Deleted Scenes','Behind the Scenes'),
     ultima_actualizacion TIMESTAMP,
     CONSTRAINT fk_id_idioma_pelicula FOREIGN KEY (id_idioma) REFERENCES idioma(id_idioma)
 ) ENGINE=INNODB;
@@ -101,10 +102,11 @@ CREATE TABLE IF NOT EXISTS categoria (
 
 CREATE TABLE IF NOT EXISTS pelicula_categoria (
     id_pelicula SMALLINT,
-    id_categoria SMALLINT,
+    id_categoria TINYINT,
     PRIMARY KEY(id_pelicula, id_categoria),
     ultima_actualizacion TIMESTAMP,
-    CONSTRAINT fk_id_pelicula_pelicula_categoria FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
+    CONSTRAINT fk_id_pelicula_pelicula_categoria FOREIGN KEY (id_pelicula) REFERENCES pelicula(id_pelicula),
+    CONSTRAINT fk_id_categoria_pelicula_categoria FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS inventario (
@@ -116,6 +118,7 @@ CREATE TABLE IF NOT EXISTS inventario (
     CONSTRAINT fk_id_pelicula_inventario FOREIGN KEY (id_almacen) REFERENCES almacen(id_almacen)
 ) ENGINE=INNODB;
 
+-- aca tambien
 CREATE TABLE IF NOT EXISTS cliente (
     id_cliente SMALLINT PRIMARY KEY,
     id_almacen TINYINT,
@@ -130,6 +133,7 @@ CREATE TABLE IF NOT EXISTS cliente (
     CONSTRAINT fk_id_direccion_cliente FOREIGN KEY (id_direccion) REFERENCES direccion(id_direccion)
 ) ENGINE=INNODB;
 
+-- aca tambien
 CREATE TABLE IF NOT EXISTS alquiler (
     id_alquiler INT PRIMARY KEY,
     fecha_alquiler DATETIME,
@@ -143,6 +147,7 @@ CREATE TABLE IF NOT EXISTS alquiler (
     CONSTRAINT fk_id_empleado_alquiler FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado)
 ) ENGINE=INNODB;
 
+-- aca tambien tengo error
 CREATE TABLE IF NOT EXISTS pago (
     id_pago SMALLINT,
     id_cliente SMALLINT,
