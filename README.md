@@ -8,15 +8,35 @@ ACLARACION: tuve que reducir la cantidad de inserts ya que se registran hasta 42
 
 1. Encuentra el cliente que ha realizado la mayor cantidad de alquileres en los últimos 6 meses.
 ```sql
-
+SELECT c.id_cliente,
+c.nombre,
+c.apellidos,
+COUNT(a.id_alquiler) as cantidad_alquileres
+FROM cliente AS c 
+INNER JOIN alquiler as a ON c.id_cliente = a.id_cliente
+GROUP BY c.id_cliente, c.nombre, c.apellidos
+HAVING a.fecha_alquiler < (NOW() - 6 MONTH)
+ORDER BY COUNT(a.id_alquiler) DESC 
+;
 ```
 2. Lista las cinco películas más alquiladas durante el último año.
 ```sql
-
+SELECT p.id_pelicula, 
+p.titulo
+FROM pelicula AS p 
+INNER JOIN inventario AS i ON p.id_pelicula = i.id_pelicula
+INNER JOIN alquiler AS a ON i.id_pelicula = a.id_pelicula  
+WHERE a.fecha_alquiler > NOW() - 1 YEAR
+ORDER BY COUNT(p.id_alquiler) DESC  
+LIMIT 5;
 ```
 3. Obtén el total de ingresos y la cantidad de alquileres realizados por cada categoría de película.
 ```sql
-
+SELECT SUM()
+FROM 
+INNER JOIN 
+WHERE 
+GROUP BY  
 ```
 4. Calcula el número total de clientes que han realizado alquileres por cada idioma disponible en un mes específico.
 ```sql
@@ -24,7 +44,9 @@ ACLARACION: tuve que reducir la cantidad de inserts ya que se registran hasta 42
 ```
 5. Encuentra a los clientes que han alquilado todas las películas de una misma categoría.
 ```sql
-
+SELECT
+FROM 
+WHERE  
 ```
 
 6. Lista las tres ciudades con más clientes activos en el último trimestre.

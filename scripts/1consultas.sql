@@ -11,15 +11,19 @@ ORDER BY COUNT(a.id_alquiler) DESC
 ;
 
 -- 2 
-SELECT 
-FROM 
-WHERE
-ORDER BY  
+SELECT p.id_pelicula, 
+p.titulo
+FROM pelicula AS p 
+INNER JOIN inventario AS i ON p.id_pelicula = i.id_pelicula
+INNER JOIN alquiler AS a ON i.id_pelicula = a.id_pelicula  
+WHERE a.fecha_alquiler > NOW() - 1 YEAR
+ORDER BY COUNT(p.id_alquiler) DESC  
 LIMIT 5;
 
 -- 3 
-SELECT  
+SELECT SUM()
 FROM 
+INNER JOIN 
 WHERE 
 GROUP BY  
 ;
