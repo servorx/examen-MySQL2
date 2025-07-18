@@ -1,6 +1,6 @@
 # Examen MySQL 2 
 
-El excamen consta de sus respectivos archivos y la sustentacion de cada ejercicio con sus indice se encuentra a lo largo de este README
+El excamen consta de sus respectivos archivos y la sustentacion de cada ejercicio con sus indice se encuentra a lo largo de este README. Las tablas y las inserciones se encuentran en los archivos de este repositorio
 
 ## Consultas SQL
 
@@ -25,22 +25,67 @@ El excamen consta de sus respectivos archivos y la sustentacion de cada ejercici
 
 ```
 
-Lista las tres ciudades con más clientes activos en el último trimestre.
-    Muestra las cinco categorías con menos alquileres registrados en el último año.
-    Calcula el promedio de días que un cliente tarda en devolver las películas alquiladas.
-    Encuentra los cinco empleados que gestionaron más alquileres en la categoría de Acción.
-    Genera un informe de los clientes con alquileres más recurrentes.
-    Calcula el costo promedio de alquiler por idioma de las películas.
-    Lista las cinco películas con mayor duración alquiladas en el último año.
-    Muestra los clientes que más alquilaron películas de Comedia.
-    Encuentra la cantidad total de días alquilados por cada cliente en el último mes.
-    Muestra el número de alquileres diarios en cada almacén durante el último trimestre.
-    Calcula los ingresos totales generados por cada almacén en el último semestre.
-    Encuentra el cliente que ha realizado el alquiler más caro en el último año.
-    Lista las cinco categorías con más ingresos generados durante los últimos tres meses.
-    Obtén la cantidad de películas alquiladas por cada idioma en el último mes.
-    Lista los clientes que no han realizado ningún alquiler en el último año.
+6. Lista las tres ciudades con más clientes activos en el último trimestre.
+```sql
 
+```
+7. Muestra las cinco categorías con menos alquileres registrados en el último año.
+```sql
+
+```
+8. Calcula el promedio de días que un cliente tarda en devolver las películas alquiladas.
+```sql
+
+```
+9. Encuentra los cinco empleados que gestionaron más alquileres en la categoría de Acción.
+```sql
+
+```
+
+10. Genera un informe de los clientes con alquileres más recurrentes.
+```sql
+
+```
+11. Calcula el costo promedio de alquiler por idioma de las películas.
+```sql
+
+```
+12. Lista las cinco películas con mayor duración alquiladas en el último año.
+```sql
+
+```
+13. Muestra los clientes que más alquilaron películas de Comedia.
+```sql
+
+```
+14. Encuentra la cantidad total de días alquilados por cada cliente en el último mes
+```sql
+
+```
+15. Muestra el número de alquileres diarios en cada almacén durante el último trimestre.
+```sql
+
+```
+16. Calcula los ingresos totales generados por cada almacén en el último semestre.
+```sql
+
+```
+17. Encuentra el cliente que ha realizado el alquiler más caro en el último año.
+```sql
+
+```
+18. Lista las cinco categorías con más ingresos generados durante los últimos tres meses.
+```sql
+
+```
+19. Obtén la cantidad de películas alquiladas por cada idioma en el último mes.
+```sql
+
+```
+20. Lista los clientes que no han realizado ningún alquiler en el último año.
+```sql
+
+```
 
 ## Funciones 
     TotalIngresosCliente(ClienteID, Año): Calcula los ingresos generados por un cliente en un año específico.
