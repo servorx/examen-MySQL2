@@ -22,7 +22,7 @@ LIMIT 5;
 
 -- 3 
 SELECT SUM()
-FROM 
+FROM alquiler
 INNER JOIN 
 WHERE 
 GROUP BY  
